@@ -1,3 +1,6 @@
+mod config;
+mod model;
+mod schema;
 use actix_web::{get, web, App, HttpServer, Responder};
 use std::io;
 
@@ -6,7 +9,7 @@ async fn greet(name: web::Path<String>) -> impl Responder {
     format!("Hello {name}!")
 }
 
-#[actix_web::main] // or #[tokio::main]
+#[actix_web::main]
 async fn main() -> io::Result<()> {
     // Print a message indicating the server is starting
     println!("Starting the server at http://127.0.0.1:8080...");
